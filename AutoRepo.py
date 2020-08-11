@@ -33,7 +33,7 @@ username = browser.find_element_by_xpath('//*[@id="login_field"]')
 username.send_keys("$USERNAME HERE$")
 
 password = browser.find_element_by_xpath('//*[@id="password"]')
-password.send_keys("$PASSWORD HERE$)
+password.send_keys("$PASSWORD HERE$")
 
 sign_in = browser.find_element_by_xpath('/html/body/div[3]/main/div/form/div[4]/input[9]')
 sign_in.click()
@@ -48,6 +48,8 @@ create = browser.find_element_by_xpath('/html/body/div[4]/main/div/form/div[4]/b
 create.click()
 
 remote = browser.find_element_by_xpath('/html/body/div[4]/div/main/div[3]/div/git-clone-help/div[2]/div[1]/div/pre/span[5]/span').get_attribute("innerHTML")
+
+browser.quit()
 
 #remove geckodriver
 os.remove("geckodriver.log")
