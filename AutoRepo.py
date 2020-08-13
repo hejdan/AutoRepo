@@ -10,7 +10,7 @@ import sys
 repoName = sys.argv[1]
 
 ###Path###
-mainPath = "/home/hejdan/Desktop/Python"
+mainPath = "$PATH TO MAIN FOLDER$"
 
 ###Make Files###
 os.chdir(mainPath)
