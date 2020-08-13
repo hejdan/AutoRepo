@@ -1,29 +1,25 @@
-                    ###Imorts###
+###Imports###
 import git
 from selenium import webdriver
 import os
 import subprocess
 from time import sleep
+import sys
 
-                    ###Path###
+###Decide Name###
+repoName = sys.argv[1]
+
+###Path###
 mainPath = "/home/hejdan/Desktop/Python"
 
-                    ###Decide Name###
-repoName = input("Choose repo name: ")
-
-
-                   ###Make Files###
+###Make Files###
 os.chdir(mainPath)
 os.mkdir(repoName)
 os.chdir(mainPath + "/" + repoName)
 subprocess.call(['touch', repoName + ".py"])
 subprocess.call(['touch', "README.md"])
 
-                    ###GITHUB PART###
-#subprocess.call(['git init'])
-#g = git.cmd.Git()
-#g.init()
-
+###GITHUB PART###
 subprocess.Popen(['git', 'init'])
 
 browser = webdriver.Firefox()
@@ -54,15 +50,15 @@ browser.quit()
 #remove geckodriver
 os.remove("geckodriver.log")
 
-#subprocess.call(['git remote add origin ' + remote])
+#Setting up remote git
 subprocess.Popen(['git', 'remote', 'add', 'origin', remote])
-#subprocess.call(['git add .'])
+#Adding file 
 subprocess.Popen(['git', 'add', '.'])
-#subprocess.call(['git commit -m "first commit"'])
+#Initial commit
 subprocess.Popen(['git', 'commit', '-m', '"first commit"'])
-#subprocess.call(['git push -u origin master'])
+#Pushing to github
 subprocess.Popen(['git', 'push', '-u', 'origin', 'master'])
-
+sys.stdout.write("$USERNAME HERE$")
+sys.stdout.write("$PASSWORD HERE$")
 #Open Visual Studio Code
 subprocess.call(['code', '.'])
-
